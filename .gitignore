@@ -2,7 +2,7 @@
 # This .gitignore file was automatically created by Microsoft(R) Visual Studio.
 ################################################################################
 
-/AspNetCoreBackend/.vs/AspNetCoreBackend
+/aspNetCoreBackend/.vs/aspNetCoreBackend
 /aspNetCoreBackend/aspNetCoreBackend/bin/Debug/netcoreapp3.1
 /aspNetCoreBackend/aspNetCoreBackend/obj
 
