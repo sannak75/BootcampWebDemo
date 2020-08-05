@@ -22,5 +22,11 @@ namespace aspNetCoreBackend.Controllers
         {
             return "ABCD";
         }
+
+        [Route("merkkijonot")]
+        public string[] Merkkijonot()
+        {
+            return new string[] { "ABCD", "EFGH" };
+        }
     }
 }
