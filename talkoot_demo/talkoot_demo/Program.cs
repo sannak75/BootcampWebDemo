@@ -19,7 +19,7 @@ namespace talkoot_demo
 
             string annettupelaajanumero = Console.ReadLine();
             Console.WriteLine();
-            Console.WriteLine("Hei pelaaja numerolla: " + annettupelaajanumero + "!");
+            Console.WriteLine("--- Hei pelaaja numerolla: " + annettupelaajanumero + "---");
             Console.WriteLine();
 
             // Tietokantayhteyden luonti:
@@ -41,18 +41,34 @@ namespace talkoot_demo
 
             while (lukija.Read())
             {
-                Console.WriteLine("Syötät pelaajan: " + lukija["etunimi"] + " " + lukija["sukunimi"] + " tietoja.");
+                Console.WriteLine("*** Syötät pelaajan: " + lukija["etunimi"] + " " + lukija["sukunimi"] + " tietoja. ***");
             }
-
+            Console.WriteLine();
             lukija.Close();
+
+           
+            Console.WriteLine("*** Olet tähän mennessä tehnyt talkootöitä: ***");
+            Console.WriteLine();
+
+            string sql2 = "SELECT talkootyot.talkoo_tekopva, talkootyot.talkoo_tyo, talkootyot.talkoo_pisteet FROM henkilot, talkootyot WHERE henkilot.henkiloid = talkootyot.henkiloid AND henkilot.pelaajanumero = '" + annettupelaajanumero + "'";  // haetaan pejaajan talkoopisteet
+
+            SqlCommand komento2 = new SqlCommand(sql2, yhteys);
+            SqlDataReader lukija2 = komento2.ExecuteReader();
+
+            while (lukija2.Read())
+            {
+                
+                Console.WriteLine("Talkootyö: " + lukija2["talkoo_tyo"] + " " + lukija2["talkoo_pisteet"] + " talkoopistettä " + "(" + lukija2["talkoo_tekopva"] + ")" );
+            }
+           
+
+            lukija2.Close(); 
             komento.Dispose();
 
             Console.WriteLine();
             Console.WriteLine("Valmis, suljetaan tietokantayhteys.");
             yhteys.Close();
             Console.ReadLine();
-
-            Console.WriteLine("Olet syöttämässä pelaajan plaa plaa tietoja.");                 // tässä haetaan kannasta tietoa.
 
             Console.WriteLine("Olet tähän mennessä tehnyt yhteensä plaa plaa talkootuntia.");  // tässä haetaan kannasta tietoa.
 
