@@ -1,0 +1,40 @@
+C:\Users\sanna\Demo CRUD\talkoot_demo\talkoot_demo\bin\Debug\netcoreapp3.1\talkoot_demo.exe
+C:\Users\sanna\Demo CRUD\talkoot_demo\talkoot_demo\bin\Debug\netcoreapp3.1\talkoot_demo.deps.json
+C:\Users\sanna\Demo CRUD\talkoot_demo\talkoot_demo\bin\Debug\netcoreapp3.1\talkoot_demo.runtimeconfig.json
+C:\Users\sanna\Demo CRUD\talkoot_demo\talkoot_demo\bin\Debug\netcoreapp3.1\talkoot_demo.runtimeconfig.dev.json
+C:\Users\sanna\Demo CRUD\talkoot_demo\talkoot_demo\bin\Debug\netcoreapp3.1\talkoot_demo.dll
+C:\Users\sanna\Demo CRUD\talkoot_demo\talkoot_demo\bin\Debug\netcoreapp3.1\talkoot_demo.pdb
+C:\Users\sanna\Demo CRUD\talkoot_demo\talkoot_demo\obj\Debug\netcoreapp3.1\talkoot_demo.csprojAssemblyReference.cache
+C:\Users\sanna\Demo CRUD\talkoot_demo\talkoot_demo\obj\Debug\netcoreapp3.1\talkoot_demo.AssemblyInfoInputs.cache
+C:\Users\sanna\Demo CRUD\talkoot_demo\talkoot_demo\obj\Debug\netcoreapp3.1\talkoot_demo.AssemblyInfo.cs
+C:\Users\sanna\Demo CRUD\talkoot_demo\talkoot_demo\obj\Debug\netcoreapp3.1\talkoot_demo.csproj.CoreCompileInputs.cache
+C:\Users\sanna\Demo CRUD\talkoot_demo\talkoot_demo\obj\Debug\netcoreapp3.1\talkoot_demo.dll
+C:\Users\sanna\Demo CRUD\talkoot_demo\talkoot_demo\obj\Debug\netcoreapp3.1\talkoot_demo.pdb
+C:\Users\sanna\Demo CRUD\talkoot_demo\talkoot_demo\obj\Debug\netcoreapp3.1\talkoot_demo.genruntimeconfig.cache
+C:\Users\sanna\Demo CRUD\talkoot_demo\talkoot_demo\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+C:\Users\sanna\Demo CRUD\talkoot_demo\talkoot_demo\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+C:\Users\sanna\Demo CRUD\talkoot_demo\talkoot_demo\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+C:\Users\sanna\Demo CRUD\talkoot_demo\talkoot_demo\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+C:\Users\sanna\Demo CRUD\talkoot_demo\talkoot_demo\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\sanna\Demo CRUD\talkoot_demo\talkoot_demo\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\sanna\Demo CRUD\talkoot_demo\talkoot_demo\obj\Debug\netcoreapp3.1\talkoot_demo.csproj.CopyComplete
+C:\Users\sanna\BootcampDemo\BootcampWebDemo\talkoot_demo\talkoot_demo\bin\Debug\netcoreapp3.1\talkoot_demo.exe
+C:\Users\sanna\BootcampDemo\BootcampWebDemo\talkoot_demo\talkoot_demo\bin\Debug\netcoreapp3.1\talkoot_demo.deps.json
+C:\Users\sanna\BootcampDemo\BootcampWebDemo\talkoot_demo\talkoot_demo\bin\Debug\netcoreapp3.1\talkoot_demo.runtimeconfig.json
+C:\Users\sanna\BootcampDemo\BootcampWebDemo\talkoot_demo\talkoot_demo\bin\Debug\netcoreapp3.1\talkoot_demo.runtimeconfig.dev.json
+C:\Users\sanna\BootcampDemo\BootcampWebDemo\talkoot_demo\talkoot_demo\bin\Debug\netcoreapp3.1\talkoot_demo.dll
+C:\Users\sanna\BootcampDemo\BootcampWebDemo\talkoot_demo\talkoot_demo\bin\Debug\netcoreapp3.1\talkoot_demo.pdb
+C:\Users\sanna\BootcampDemo\BootcampWebDemo\talkoot_demo\talkoot_demo\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
+C:\Users\sanna\BootcampDemo\BootcampWebDemo\talkoot_demo\talkoot_demo\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
+C:\Users\sanna\BootcampDemo\BootcampWebDemo\talkoot_demo\talkoot_demo\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
+C:\Users\sanna\BootcampDemo\BootcampWebDemo\talkoot_demo\talkoot_demo\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
+C:\Users\sanna\BootcampDemo\BootcampWebDemo\talkoot_demo\talkoot_demo\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\sanna\BootcampDemo\BootcampWebDemo\talkoot_demo\talkoot_demo\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\sanna\BootcampDemo\BootcampWebDemo\talkoot_demo\talkoot_demo\obj\Debug\netcoreapp3.1\talkoot_demo.csprojAssemblyReference.cache
+C:\Users\sanna\BootcampDemo\BootcampWebDemo\talkoot_demo\talkoot_demo\obj\Debug\netcoreapp3.1\talkoot_demo.AssemblyInfoInputs.cache
+C:\Users\sanna\BootcampDemo\BootcampWebDemo\talkoot_demo\talkoot_demo\obj\Debug\netcoreapp3.1\talkoot_demo.AssemblyInfo.cs
+C:\Users\sanna\BootcampDemo\BootcampWebDemo\talkoot_demo\talkoot_demo\obj\Debug\netcoreapp3.1\talkoot_demo.csproj.CoreCompileInputs.cache
+C:\Users\sanna\BootcampDemo\BootcampWebDemo\talkoot_demo\talkoot_demo\obj\Debug\netcoreapp3.1\talkoot_demo.csproj.CopyComplete
+C:\Users\sanna\BootcampDemo\BootcampWebDemo\talkoot_demo\talkoot_demo\obj\Debug\netcoreapp3.1\talkoot_demo.dll
+C:\Users\sanna\BootcampDemo\BootcampWebDemo\talkoot_demo\talkoot_demo\obj\Debug\netcoreapp3.1\talkoot_demo.pdb
+C:\Users\sanna\BootcampDemo\BootcampWebDemo\talkoot_demo\talkoot_demo\obj\Debug\netcoreapp3.1\talkoot_demo.genruntimeconfig.cache
