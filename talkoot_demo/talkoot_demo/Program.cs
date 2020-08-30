@@ -17,6 +17,11 @@ namespace talkoot_demo
 
             Console.WriteLine("Anna pelaajanumerosi:");
 
+            string annettupelaajanumero = Console.ReadLine();
+            Console.WriteLine();
+            Console.WriteLine("Hei pelaaja numerolla: " + annettupelaajanumero + "!");
+            Console.WriteLine();
+
             // Tietokantayhteyden luonti:
 
             Console.WriteLine("Aloitetaan tietokantayhteyden avaus...");
@@ -26,6 +31,26 @@ namespace talkoot_demo
             yhteys.Open();
 
             Console.WriteLine("Tietokantayhteys avattu onnistuneesti.");
+            Console.WriteLine();
+
+
+            string sql = "SELECT etunimi, sukunimi FROM henkilot WHERE pelaajanumero = '"+annettupelaajanumero+"'";  // haetaan pejaajan tiedot
+                     
+            SqlCommand komento = new SqlCommand(sql, yhteys);
+            SqlDataReader lukija = komento.ExecuteReader();
+
+            while (lukija.Read())
+            {
+                Console.WriteLine("Syötät pelaajan: " + lukija["etunimi"] + " " + lukija["sukunimi"] + " tietoja.");
+            }
+
+            lukija.Close();
+            komento.Dispose();
+
+            Console.WriteLine();
+            Console.WriteLine("Valmis, suljetaan tietokantayhteys.");
+            yhteys.Close();
+            Console.ReadLine();
 
             Console.WriteLine("Olet syöttämässä pelaajan plaa plaa tietoja.");                 // tässä haetaan kannasta tietoa.
 
