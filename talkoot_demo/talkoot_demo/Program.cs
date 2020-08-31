@@ -83,11 +83,9 @@ namespace talkoot_demo
             Console.WriteLine();
             Console.WriteLine("*** Talkootyöpisteesi yhteensä ovat: " + summa + " pistettä. ***"); ;  // tulostetaan olemassa olevien pisteiden summa
 
-
             komento3.Dispose();
 
             
-
             Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine("*** Haluatko kirjata lisää talkoopisteitä? ***");           // uusien pisteiden kirjaus
@@ -117,10 +115,26 @@ namespace talkoot_demo
                 String sql4 = "INSERT INTO dbo.talkootyot (henkiloid,talkoo_tyo,talkoo_pisteet, talkoo_tekopva) " +  // tallennetaan kantaan 
                     "VALUES (@henkiloid,@talkoo_tyo, @talkoo_pisteet, @talkoo_tekopva)";
 
+
+                /*TÄMÄ VÄLI EI TOIMI -- PITÄISI KONVERTOIDA OIKEAAN MUOTOON
+
+                string henkilo = "SELECT henkilot.henkiloid " +
+                                  "FROM henkilot" +
+                                  "WHERE henkilot.pelaajanumero = '" + annettupelaajanumero + "'";
+
+                int henkilonumero = int.Parse(henkilo);
+
                 SqlCommand komento4 = new SqlCommand(sql4, yhteys);
 
                 {
-                    komento4.Parameters.Add("@henkiloid", System.Data.SqlDbType.NChar).Value = "1";  // NYT KOVAKOODATTU: Tähän pitäisi hakea alussa annetun numeron perusteella oikea id...
+                    komento4.Parameters.Add("@henkiloid", System.Data.SqlDbType.Int).Value = henkilonumero; */
+
+
+
+                    SqlCommand komento4 = new SqlCommand(sql4, yhteys);
+
+                {
+                    komento4.Parameters.Add("@henkiloid", System.Data.SqlDbType.Int).Value = 1;  // NYT KOVAKOODATTU: Tähän pitäisi hakea alussa annetun numeron perusteella oikea id...
 
                     komento4.Parameters.Add("@talkoo_tyo", System.Data.SqlDbType.NChar).Value = syotettytyo;
 
@@ -157,7 +171,7 @@ namespace talkoot_demo
 
                 lukija5.Close();
 
-                string sql6 = "SELECT SUM(talkootyot.talkoo_pisteet) " +                    // lasketaan yhteen pejaajan uudet talkoopisteet
+                string sql6 = "SELECT SUM(talkootyot.talkoo_pisteet) " +                                    // lasketaan yhteen pejaajan uudet talkoopisteet
                               "FROM henkilot, talkootyot " +
                                "WHERE henkilot.henkiloid = talkootyot.henkiloid " +
                               "AND henkilot.pelaajanumero = '" + annettupelaajanumero + "'";
