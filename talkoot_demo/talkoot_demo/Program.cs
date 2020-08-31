@@ -81,7 +81,7 @@ namespace talkoot_demo
 
             Console.WriteLine();
             Console.WriteLine();
-            Console.WriteLine("*** Talkootyöpisteesi yhteensä ovat: " + summa + " pistettä. ***"); ;  // tulostetaan summa
+            Console.WriteLine("*** Talkootyöpisteesi yhteensä ovat: " + summa + " pistettä. ***"); ;  // tulostetaan olemassa olevien pisteiden summa
 
 
             komento3.Dispose();
