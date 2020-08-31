@@ -106,7 +106,44 @@ namespace talkoot_demo
             {
                 Console.WriteLine();
                 Console.WriteLine("Ole hyvä, syötä tiedot tekemistäsi talkootöistä:");
-            }
+
+                Console.WriteLine();
+                Console.WriteLine("Mitä talkootyötä olet tehnyt:");
+                string syotettytyo = Console.ReadLine();
+                                                                    // tallennetaan kantaan
+
+                Console.WriteLine();
+                Console.WriteLine("Anna vielä tunti-/pistemäärä:");
+                string syotettypiste = Console.ReadLine();
+                int tehtypiste = int.Parse(syotettypiste);                   // tallennetaan kantaan                  
+
+                       
+                String sql4 = "INSERT INTO dbo.talkootyot (henkiloid,talkoo_tyo,talkoo_pisteet, talkoo_tekopva) " +
+                    "VALUES (@henkiloid,@talkoo_tyo, @talkoo_pisteet, @talkoo_tekopva)";
+
+                SqlCommand komento4 = new SqlCommand(sql4, yhteys);
+
+                {
+                    komento4.Parameters.Add("@henkiloid", System.Data.SqlDbType.NChar).Value = "1";  // NYT KOVAKOODATTU: Tähän pitäisi hakea alussa annetun numeron perusteella oikea id...
+
+                    komento4.Parameters.Add("@talkoo_tyo", System.Data.SqlDbType.NChar).Value = syotettytyo;
+
+                    komento4.Parameters.Add("@talkoo_pisteet", System.Data.SqlDbType.NChar).Value = tehtypiste;
+
+                    komento4.Parameters.Add("@talkoo_tekopva", System.Data.SqlDbType.DateTime).Value = DateTime.Now;
+
+                    komento4.ExecuteNonQuery();
+
+                    komento.Dispose();
+
+                }
+                    Console.WriteLine("Kiitos antamistasi tiedoista. Pisteesi on kirjattu järjestelmään.");
+                    Console.WriteLine();
+
+
+
+
+                }
             else if (valinta == 2)
             {
                 Console.WriteLine();
