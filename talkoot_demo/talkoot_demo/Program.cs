@@ -92,6 +92,8 @@ namespace talkoot_demo
             Console.WriteLine();
             Console.WriteLine("Anna vastauksesti muodossa: kyllä = 1 / ei = 2");
             Console.WriteLine();
+            Console.WriteLine("--- Jos haluat lisätä ohjelmaan uuden pelaajan - valitse 3 ---");
+            Console.WriteLine();
 
             string syotettyarvo = Console.ReadLine();
             int valinta = int.Parse(syotettyarvo);
@@ -116,13 +118,15 @@ namespace talkoot_demo
                     "VALUES (@henkiloid,@talkoo_tyo, @talkoo_pisteet, @talkoo_tekopva)";
 
 
-                /*TÄMÄ VÄLI EI TOIMI -- PITÄISI KONVERTOIDA OIKEAAN MUOTOON
+                /* TÄMÄ VÄLI EI TOIMI -- PITÄISI KONVERTOIDA OIKEAAN MUOTOON
 
                 string henkilo = "SELECT henkilot.henkiloid " +
                                   "FROM henkilot" +
                                   "WHERE henkilot.pelaajanumero = '" + annettupelaajanumero + "'";
 
-                int henkilonumero = int.Parse(henkilo);
+                int henkilonumero = Convert.ToInt32(henkilo);
+                // int henkilonumero = int.Parse(henkilo);
+
 
                 SqlCommand komento4 = new SqlCommand(sql4, yhteys);
 
@@ -130,11 +134,10 @@ namespace talkoot_demo
                     komento4.Parameters.Add("@henkiloid", System.Data.SqlDbType.Int).Value = henkilonumero; */
 
 
-
-                    SqlCommand komento4 = new SqlCommand(sql4, yhteys);
+                SqlCommand komento4 = new SqlCommand(sql4, yhteys);
 
                 {
-                    komento4.Parameters.Add("@henkiloid", System.Data.SqlDbType.Int).Value = 1;  // NYT KOVAKOODATTU: Tähän pitäisi hakea alussa annetun numeron perusteella oikea id...
+                    komento4.Parameters.Add("@henkiloid", System.Data.SqlDbType.Int).Value = 1;          // NYT KOVAKOODATTU: Tähän pitäisi hakea alussa annetun numeron perusteella oikea id...
 
                     komento4.Parameters.Add("@talkoo_tyo", System.Data.SqlDbType.NChar).Value = syotettytyo;
 
@@ -144,7 +147,7 @@ namespace talkoot_demo
 
                     komento4.ExecuteNonQuery();
 
-                    komento.Dispose();
+                    komento4.Dispose();
 
                 }
                     Console.WriteLine();
@@ -190,6 +193,63 @@ namespace talkoot_demo
             {
                 Console.WriteLine();
                 Console.WriteLine("Kiitos ohjelman käytöstä. Ohjelma suljetaan.");
+            }
+
+            else if (valinta == 3)
+            {
+                Console.WriteLine();
+                Console.WriteLine("*** Uuden pelaajan lisäys. ***");                // Uuden pelaajan lisäys kantaan.
+                
+                Console.WriteLine();
+                Console.WriteLine("Ole hyvä, syötä uuden pelaajan tiedot:");
+
+                Console.WriteLine();
+                Console.WriteLine("Anna pelaajan etunimi:");                     
+                string syotettyenimi = Console.ReadLine();
+
+                Console.WriteLine();
+                Console.WriteLine("Anna pelaajan sukunimi:");                     
+                string syotettysnimi = Console.ReadLine();
+
+                Console.WriteLine();
+                Console.WriteLine("Anna pelaajan emil:");                     
+                string syotettyemail = Console.ReadLine();
+
+                Console.WriteLine();
+                Console.WriteLine("Anna pelaajan tunnus:");                     
+                string syotettytunnus = Console.ReadLine();
+
+                Console.WriteLine();
+                Console.WriteLine("Anna pelaajan numero:");                     
+                string syotettynumero = Console.ReadLine();
+                int uusipelaajanumero = int.Parse(syotettynumero);
+
+                Console.WriteLine();
+               
+                String sql7 = "INSERT INTO dbo.henkilot (sukunimi, etunimi, email, tunnus, pelaajanumero) " +  // tallennetaan kantaan 
+                    "VALUES (@sukunimi, @etunimi, @email, @tunnus, @pelaajanumero)";
+                
+                     SqlCommand komento7 = new SqlCommand(sql7, yhteys);
+
+                {
+                    komento7.Parameters.Add("@sukunimi", System.Data.SqlDbType.NChar).Value = syotettysnimi;  
+
+                    komento7.Parameters.Add("@etunimi", System.Data.SqlDbType.NChar).Value = syotettyenimi;
+
+                    komento7.Parameters.Add("@email", System.Data.SqlDbType.NChar).Value = syotettyemail;
+
+                    komento7.Parameters.Add("@tunnus", System.Data.SqlDbType.NChar).Value = syotettytunnus;
+
+                    komento7.Parameters.Add("@pelaajanumero", System.Data.SqlDbType.Int).Value = uusipelaajanumero;
+
+                    komento7.ExecuteNonQuery();
+
+                    komento7.Dispose();
+
+                }
+
+                Console.WriteLine("*** Uuden pelaajan tiedot lisätty onnistuneesti. ***");
+
             }
 
             else
