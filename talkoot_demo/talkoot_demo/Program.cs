@@ -1,4 +1,5 @@
-﻿using System;
+﻿ 
+using System;
 using System.Data.SqlClient;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,8 +39,8 @@ namespace talkoot_demo
 
             string sql = "SELECT etunimi, sukunimi " +
                 "FROM henkilot " +
-                "WHERE pelaajanumero = '"+annettupelaajanumero+"'";                       // haetaan pejaajan tiedot
-                     
+                "WHERE pelaajanumero = '" + annettupelaajanumero + "'";                       // haetaan pejaajan tiedot
+
             SqlCommand komento = new SqlCommand(sql, yhteys);
             SqlDataReader lukija = komento.ExecuteReader();
 
@@ -50,24 +51,24 @@ namespace talkoot_demo
             Console.WriteLine();
             lukija.Close();
 
-           
+
             Console.WriteLine("Olet tähän mennessä tehnyt talkootöitä:");         // haetaan pejaajan talkoopisteet
             Console.WriteLine();
 
             string sql2 = "SELECT talkootyot.tyoid, talkootyot.talkoo_tekopva, talkootyot.talkoo_tyo, talkootyot.talkoo_pisteet " +
                 "FROM henkilot, talkootyot " +
                 "WHERE henkilot.henkiloid = talkootyot.henkiloid " +
-                "AND henkilot.pelaajanumero = '" + annettupelaajanumero + "'";  
+                "AND henkilot.pelaajanumero = '" + annettupelaajanumero + "'";
 
             SqlCommand komento2 = new SqlCommand(sql2, yhteys);
             SqlDataReader lukija2 = komento2.ExecuteReader();
 
             while (lukija2.Read())
             {
-                
-                Console.WriteLine("Talkootyö: " + lukija2["talkoo_tyo"] + ", " + lukija2["talkoo_pisteet"] + " talkoopistettä " + "(" + lukija2["talkoo_tekopva"] + ") työtunnus: " +lukija2["tyoid"]);
+
+                Console.WriteLine("Talkootyö: " + lukija2["talkoo_tyo"] + ", " + lukija2["talkoo_pisteet"] + " talkoopistettä " + "(" + lukija2["talkoo_tekopva"] + ") työtunnus: " + lukija2["tyoid"]);
             }
-           
+
 
             lukija2.Close();
 
@@ -75,9 +76,9 @@ namespace talkoot_demo
                 "FROM henkilot, talkootyot " +
                 "WHERE henkilot.henkiloid = talkootyot.henkiloid " +
                 "AND henkilot.pelaajanumero = '" + annettupelaajanumero + "'";
-            
-           SqlCommand komento3 = new SqlCommand(sql3, yhteys);
-           object summa = komento3.ExecuteScalar();
+
+            SqlCommand komento3 = new SqlCommand(sql3, yhteys);
+            object summa = komento3.ExecuteScalar();
 
             Console.WriteLine();
             Console.WriteLine();
@@ -85,7 +86,7 @@ namespace talkoot_demo
 
             komento3.Dispose();
 
-            
+
             Console.WriteLine();
             Console.WriteLine();
             Console.WriteLine("--- Haluatko kirjata lisää talkoopisteitä? ---");           // uusien pisteiden kirjaus
@@ -123,16 +124,20 @@ namespace talkoot_demo
                     "VALUES (@henkiloid,@talkoo_tyo, @talkoo_pisteet, @talkoo_tekopva)";
 
 
-                /* TÄMÄ VÄLI EI TOIMI -- KORJAA:   (+ LOOPIN LISÄYS)
-                 * 
-                      string henkilo = "SELECT henkilot.henkiloid " +
+                 // TÄMÄ VÄLI EI TOIMI -- KORJAA:   (+ LOOPIN LISÄYS)
+                  
+                 /*     string sqlhenkilo = "SELECT henkilot.henkiloid " +
                                         "FROM henkilot" +
                                         "WHERE henkilot.pelaajanumero = '" + annettupelaajanumero + "'";
+               
+                    SqlCommand idnhaku = new SqlCommand(sqlhenkilo, yhteys);
+                                
+                    SqlDataReader idnluku = idnhaku.ExecuteReader();
+                    int henkilonumero = Convert.ToInt32(idnluku["henkiloid"].ToString());
 
-                      int henkilonumero = Convert.ToInt32(henkilo);
-                      // int henkilonumero = int.Parse(henkilo);
-                      SqlCommand komento4 = new SqlCommand(sql4, yhteys);
-                      {
+                             
+                    SqlCommand komento4 = new SqlCommand(sql4, yhteys);
+                { 
                           komento4.Parameters.Add("@henkiloid", System.Data.SqlDbType.Int).Value = henkilonumero; */
 
 
@@ -262,9 +267,9 @@ namespace talkoot_demo
 
                 string poistettavarivi = Console.ReadLine();
 
-                string sql8 = "DELETE FROM talkootyot " +                 
+                string sql8 = "DELETE FROM talkootyot " +
                               "WHERE talkootyot.tyoid = '" + poistettavarivi + "'";
-             
+
 
                 SqlCommand komento8 = new SqlCommand(sql8, yhteys);
 
@@ -274,8 +279,8 @@ namespace talkoot_demo
 
                     komento8.Dispose();
 
-                }               
-                                    
+                }
+
                 Console.WriteLine();
                 Console.WriteLine("*** Valittu talkootyörivi poistettu onnistuneesti. ***");
                 Console.WriteLine();
@@ -283,7 +288,7 @@ namespace talkoot_demo
                 Console.WriteLine("Poiston jälkeen sinulle on kirjattu seuraavia talkootöitä:");                 // haetaan pejaajan uudet talkoopisteet
                 Console.WriteLine();
 
-                string sql5 = "SELECT talkootyot.talkoo_tekopva, talkootyot.talkoo_tyo, talkootyot.talkoo_pisteet " +
+                string sql5 = "SELECT talkootyot.talkoo_tekopva, talkootyot.talkoo_tyo, talkootyot.talkoo_pisteet, talkootyot.tyoid " +
                     "FROM henkilot, talkootyot " +
                     "WHERE henkilot.henkiloid = talkootyot.henkiloid " +
                     "AND henkilot.pelaajanumero = '" + annettupelaajanumero + "'";
@@ -294,7 +299,7 @@ namespace talkoot_demo
                 while (lukija5.Read())
                 {
 
-                    Console.WriteLine("Talkootyö: " + lukija5["talkoo_tyo"] + " " + lukija5["talkoo_pisteet"] + " talkoopistettä " + "(" + lukija5["talkoo_tekopva"] + ")");
+                    Console.WriteLine("Talkootyö: " + lukija5["talkoo_tyo"] + " " + lukija5["talkoo_pisteet"] + " talkoopistettä " + "(" + lukija5["talkoo_tekopva"] + ") työtunnus: " + lukija5["tyoid"]);
                 }
 
 
@@ -314,7 +319,7 @@ namespace talkoot_demo
 
                 komento6.Dispose();
             }
-       
+
             else
             {
                 Console.WriteLine();
@@ -326,8 +331,9 @@ namespace talkoot_demo
             Console.WriteLine("Valmis, suljetaan tietokantayhteys.");
             yhteys.Close();
             Console.ReadLine();
-                                               
-          
+
+
         }
     }
 }
+
