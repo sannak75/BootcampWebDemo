@@ -37,16 +37,20 @@ namespace talkoot_demo
             Console.WriteLine();
             Console.WriteLine();
 
-            string sql = "SELECT etunimi, sukunimi " +
+            string sql = "SELECT etunimi, sukunimi, henkiloid " +
                 "FROM henkilot " +
                 "WHERE pelaajanumero = '" + annettupelaajanumero + "'";                       // haetaan pejaajan tiedot
 
             SqlCommand komento = new SqlCommand(sql, yhteys);
             SqlDataReader lukija = komento.ExecuteReader();
 
+            int henkiloid = 0;
+
             while (lukija.Read())
             {
                 Console.WriteLine("*** Syötät talkootietoja pelaajalle: " + lukija["etunimi"] + " " + lukija["sukunimi"] + " / pelinumerolla: " + annettupelaajanumero + " ***");
+                henkiloid = int.Parse(lukija["henkiloid"].ToString());
+                Console.WriteLine(henkiloid);
             }
             Console.WriteLine();
             lukija.Close();
@@ -124,27 +128,28 @@ namespace talkoot_demo
                     "VALUES (@henkiloid,@talkoo_tyo, @talkoo_pisteet, @talkoo_tekopva)";
 
 
-                 // TÄMÄ VÄLI EI TOIMI -- KORJAA:   (+ LOOPIN LISÄYS)
-                  
-                 /*     string sqlhenkilo = "SELECT henkilot.henkiloid " +
-                                        "FROM henkilot" +
-                                        "WHERE henkilot.pelaajanumero = '" + annettupelaajanumero + "'";
-               
-                    SqlCommand idnhaku = new SqlCommand(sqlhenkilo, yhteys);
-                                
-                    SqlDataReader idnluku = idnhaku.ExecuteReader();
-                    int henkilonumero = Convert.ToInt32(idnluku["henkiloid"].ToString());
+                // TÄMÄ VÄLI EI TOIMI -- KORJAA:   (+ LOOPIN LISÄYS)
 
-                             
-                    SqlCommand komento4 = new SqlCommand(sql4, yhteys);
-                { 
-                          komento4.Parameters.Add("@henkiloid", System.Data.SqlDbType.Int).Value = henkilonumero; */
+                /*     string sqlhenkilo = "SELECT henkilot.henkiloid " +
+                                       "FROM henkilot" +
+                                       "WHERE henkilot.pelaajanumero = '" + annettupelaajanumero + "'";
+
+                   SqlCommand idnhaku = new SqlCommand(sqlhenkilo, yhteys);
+
+                   SqlDataReader idnluku = idnhaku.ExecuteReader();
+                   int henkilonumero = Convert.ToInt32(idnluku["henkiloid"].ToString());
+                    henkiloid = int.Parse(lukija["henkiloid"].ToString());
+
+                   SqlCommand komento4 = new SqlCommand(sql4, yhteys);
+
+               { 
+                         komento4.Parameters.Add("@henkiloid", System.Data.SqlDbType.Int).Value = henkilonumero; */
 
 
                 SqlCommand komento4 = new SqlCommand(sql4, yhteys);
 
                 {
-                    komento4.Parameters.Add("@henkiloid", System.Data.SqlDbType.Int).Value = 3;          // NYT KOVAKOODATTU: Tähän pitäisi hakea alussa annetun numeron perusteella oikea id...
+                    komento4.Parameters.Add("@henkiloid", System.Data.SqlDbType.Int).Value = henkiloid;          // NYT KOVAKOODATTU: Tähän pitäisi hakea alussa annetun numeron perusteella oikea id...
 
                     komento4.Parameters.Add("@talkoo_tyo", System.Data.SqlDbType.NChar).Value = syotettytyo;
 
